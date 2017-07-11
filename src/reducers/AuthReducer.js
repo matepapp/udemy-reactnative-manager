@@ -1,11 +1,13 @@
 // @flow
+import { EMAIL_CHANGED } from '../actions/types';
+
 const INITIAL_STATE = { email: '' };
 
-export default (state, action) => {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'email_changed':
-      
+    case EMAIL_CHANGED:
+
     default:
-      return INITIAL_STATE;
+      return state;
   }
 }
