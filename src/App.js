@@ -4,10 +4,15 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase';
 import ReduxThunk from 'redux-thunk';
+import { StackNavigator } from 'react-navigation';
 import reducers from './reducers';
 import LoginForm from './components/LoginForm';
 
-export default class App extends Component {
+class LoginScreen extends Component {
+  static navigationOptions = {
+    title: 'Please Login',
+  };
+
   componentWillMount() {
     const config = {
       apiKey: 'AIzaSyAviHOrPkkii3jFDdAv4eSLkLqHNPZPFIo',
@@ -31,3 +36,9 @@ export default class App extends Component {
     );
   }
 }
+
+const App = StackNavigator({
+  Login: { screen: LoginScreen },
+});
+
+export default App;
